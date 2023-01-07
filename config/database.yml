@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: kmall_production
-  username: kmall
-  password: <%= ENV["KMALL_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
