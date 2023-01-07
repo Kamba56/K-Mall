@@ -25,11 +25,11 @@
 <!-- PROJECT DESCRIPTION -->
 https://www.youtube.com/watch?v=Rea2AjMgZXA
 
-# 📖 Recipe App <a name="about-project"></a>
+# 📖 Kamba Mall <a name="about-project"></a>
 
 > A clone of buffer
 
-** Recipe App ** is a ruby project to learn ruby on rails framework ( The gem of programming )
+** Kamba mall ** is a rails project that displays various stores available in a mall and the list of items available in wach store
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -62,9 +62,9 @@ https://www.youtube.com/watch?v=Rea2AjMgZXA
 
 > Describe between 1-3 key features of the application.
 
-- **Users can add food**
-- **Users can view recipes**
-- **Users can generate shopping list**
+- **Users can Stores**
+- **Users can view Stores**
+- **Users can items in a store**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,20 +75,14 @@ https://www.youtube.com/watch?v=Rea2AjMgZXA
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[Users can register ]**
-- [ ] **[Users can Login ]**
+- [ ] **Users ca generate shopping cart**
+- [ ] **Users can checkout cart**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Live demo
+https://kmall.onrender.com/
 
 <!-- GETTING STARTED -->
 
@@ -117,7 +111,7 @@ Example command:
 Clone this repository to your desired folder:
 
 ```
-  git clone https://github.com/Kamba56/RecipeApp.git
+  git clone https://github.com/Kamba56/Kmall.git
 ```
 
 ### Install
@@ -125,7 +119,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```
-  cd RecipeApp
+  cd Kmall
   gem install
 ```
 
@@ -166,14 +160,7 @@ Example:
 ## 👥 Authors <a name="authors"></a>
 
 
-👤 **Author1**
-
-- GitHub: [@t-bello7](https://github.com/t-bello7)
-- Twitter: [@__tbello](https://twitter.com/__tbello)
-- LinkedIn: [Bello Oluwatomisin](https://linkedin.com/in/tbello7)
-
-
-👤 **Author2**
+👤 **Toma John Musa**
 
 - GitHub: [@Kamba56](https://github.com/Kamba56)
 - Twitter: [@Kamba_TJ](https://twitter.com/Kamba_TJ)
@@ -203,31 +190,18 @@ If you like this project you can show support by giving a star to the project
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse and Gorails community 
+I would like to thank microverse and Gorails community
+
+Specails thanks to Gregoire Vella on Behance for designing the template
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
-<!-- 
-## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./license) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
