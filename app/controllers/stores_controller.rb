@@ -1,13 +1,20 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: :splash
 
   # GET /stores or /stores.json
   def index
-    @stores = Store.all
+    @stores = Store.where(user_id: current_user.id)
   end
 
   # GET /stores/1 or /stores/1.json
   def show
+    @store = Store.find(params[:id])
+    if @store.user != current_user
+      flash[:alert] = 'You can only see what you created'
+      redirect_to stores_path
+    end
+    @items = @store.items.order(created_at: :desc)
+    @total = @items.sum(:amount)
   end
 
   # GET /stores/new
@@ -15,56 +22,21 @@ class StoresController < ApplicationController
     @store = Store.new
   end
 
-  # GET /stores/1/edit
-  def edit
-  end
-
-  # POST /stores or /stores.json
   def create
-    @store = Store.new(store_params)
+    store = Store.new(store_params)
 
-    respond_to do |format|
-      if @store.save
-        format.html { redirect_to store_url(@store), notice: "Store was successfully created." }
-        format.json { render :show, status: :created, location: @store }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /stores/1 or /stores/1.json
-  def update
-    respond_to do |format|
-      if @store.update(store_params)
-        format.html { redirect_to store_url(@store), notice: "Store was successfully updated." }
-        format.json { render :show, status: :ok, location: @store }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /stores/1 or /stores/1.json
-  def destroy
-    @store.destroy
-
-    respond_to do |format|
-      format.html { redirect_to stores_url, notice: "Store was successfully destroyed." }
-      format.json { head :no_content }
+    if store.save
+      redirect_to stores_path
+    else
+      flash[:alert] = 'store not created'
+      render :new
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_store
-      @store = Store.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def store_params
-      params.require(:store).permit(:name, :icon)
-    end
+  # Only allow a list of trusted parameters through.
+  def store_params
+    params.require(:store).permit(:name, :icon).merge(user_id: current_user.id)
+  end
 end

@@ -1,10 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<div class="d-flex flex-column justify-content-between align-items-between" style="height: 80vh">
+  <div class="row">
+    <div class="col-8">
+      <h2><%= @store.name %></h2>
+    </div>
+    <div class="col-4">
+      <p>$<%= @total %></p>
+    </div>
+  </div>
 
-<%= render @store %>
+  <div>
+    <% @items.each do |item| %>
+      <div class="card mb-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-8">
+              <%= item.name %>
+            </div>
+            <div class="col-4">
+              $<%= item.amount %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<div>
-  <%= link_to "Edit this store", edit_store_path(@store) %> |
-  <%= link_to "Back to stores", stores_path %>
-
-  <%= button_to "Destroy this store", @store, method: :delete %>
+  <div class="d-flex flex-column justify-content-between align-items-between">
+    <%= link_to "Add new Item", new_store_item_path(@store), class: "btn btn-success" %> <br>
+    <%= link_to "Back", stores_path, class: "btn btn-secondary" %>
+  </div>
 </div>
